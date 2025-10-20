@@ -14,34 +14,10 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.contrib import admin
 from django.urls import path, include
-from rest_framework.routers import DefaultRouter
-from .views import (
-    RegisterView,
-    LoginView,
-    StudentApplicationViewSet,
-    AdminApplicationViewSet
-)
 
-# ------------------------------------------------------
-# Router for ViewSets (Student & Admin Applications)
-# ------------------------------------------------------
-router = DefaultRouter()
-router.register(r'applications', StudentApplicationViewSet, basename='student-applications')
-router.register(r'admin/applications', AdminApplicationViewSet, basename='admin-applications')
-
-# ------------------------------------------------------
-# URL Patterns
-# ------------------------------------------------------
 urlpatterns = [
-    # -------------------------
-    # Authentication URLs
-    # -------------------------
-    path('api/auth/register/', RegisterView.as_view(), name='register'),
-    path('api/auth/login/', LoginView.as_view(), name='login'),
-
-    # -------------------------
-    # Application URLs (Student + Admin)
-    # -------------------------
-    path('api/', include(router.urls)),
+    path('admin/', admin.site.urls),
+    path('api/', include('api.urls')),  # Include all app-level URLs
 ]
