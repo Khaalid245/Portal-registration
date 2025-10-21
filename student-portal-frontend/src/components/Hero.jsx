@@ -3,7 +3,7 @@ import React from "react";
 const Hero = () => {
   return (
     // Slightly more compact section padding for a "smaller" feel
-    <section className="py-20 md:py-10 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-white overflow-hidden">
+    <section className="py-20 md:py-10 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-white ">
       <div className="flex flex-col-reverse md:flex-row items-center justify-between max-w-6xl mx-auto gap-10">
         {" "}
         {/* max-w-6xl for a slightly more contained layout */}
